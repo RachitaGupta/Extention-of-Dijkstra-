@@ -4,13 +4,9 @@ import org.graphstream.algorithm.util.FibonacciHeap;
 public class CityRoads {
 
 	@SuppressWarnings("null")
-
 	public static void main(String args[]){
-
 		String filename="";
 		PathShort mycity=new PathShort();
-
-
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Select an option\n1. Input by File\n2. Input by Console");
 		int choice=sc.nextInt();
@@ -59,11 +55,7 @@ public class CityRoads {
 			for(int i=0;i<mycity.cities;i++)
 				endToStart[i]=citygraphEnd.distTo[i];
 			double new_min=citygraphEnd.distTo[mycity.src];
-
-
 			String res[]=new String[mycity.k];
-
-
 			System.out.println("Shortest Path Cost Before New Path: "+min_cost);
 
 			for(int i=0;i<mycity.k;i++){
@@ -83,9 +75,8 @@ public class CityRoads {
 				double dij_i,dij_j,dij_jEnd;
 				dij_i=citygraph.distTo[parts[0]];
 				dij_j=citygraph.distTo[parts[1]];
-			  dij_jEnd=citygraphEnd.distTo[parts[1]];
+			        dij_jEnd=citygraphEnd.distTo[parts[1]];
 				double costs[]=new double[mycity.k];
-
 
 				if(dij_i+parts[2]+dij_jEnd<min_cost){
 
@@ -101,35 +92,16 @@ public class CityRoads {
 				}
 				else{
 					costs[i]=9999;
-					//System.out.println("\n###########\n"+i + "th path not reducing the cost");
 				}
-
-
-
-				//}
-
-
-				/*
-				citygraph.addEdge(parts[0],parts[1],parts[2]);
-				citygraph.runDijkstra(mycity.src);
-				if((citygraph.distTo[mycity.dest])<min_cost){
-					min_cost=citygraph.distTo[mycity.dest];
-					System.out.println("new //cost"+i+":"+citygraph.distTo[mycity.dest]);
-				}
-				citygraph.addEdge(parts[0],parts[1],9999);
-				*/
 			}
 			if(path!="")
 				System.out.println("Max Reduction is provided by "+path);
 			else
 				System.out.println("No path reduces length");
 
-
-
 		}
 		catch(Exception e){
 			System.out.println(e);
 		}
 	}
-
 }
