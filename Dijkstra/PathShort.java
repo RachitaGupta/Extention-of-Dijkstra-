@@ -57,9 +57,4 @@ public class PathShort {
 		dest=sc.nextInt();
 
 	}
-
-
-	public void print(){
-
-	}
 }
